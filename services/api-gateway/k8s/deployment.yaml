@@ -12,15 +12,15 @@ spec:
       containers:
       - name: api-gateway
         image: thisisjfrogdemo.jfrog.io/cicd-docker/microservicebasedapp/api-gateway:v1
-        image: image_name
+        #image: image_name
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8000
+        - containerPort: 8080
         readinessProbe:
-          httpGet: { path: /health, port: 8000 }
+          httpGet: { path: /health, port: 8080 }
           initialDelaySeconds: 3
           periodSeconds: 10
         livenessProbe:
-          httpGet: { path: /health, port: 8000 }
+          httpGet: { path: /health, port: 8080 }
           initialDelaySeconds: 10
           periodSeconds: 20
